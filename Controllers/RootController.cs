@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RetailAppS.Auth;
+using Ondrej.Auth;
 
-namespace RetailAppS.Controllers
+namespace Ondrej.Controllers
 {
     [Route("")]
     public class RootController : Controller

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RetailAppS.Model
+namespace Ondrej.Model
 {
     /// <summary>
     /// The annotaions are required for Validator.TryValidateObject during the user input of the data.

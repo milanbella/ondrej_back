@@ -1,16 +1,16 @@
 ﻿#pragma warning disable 8600, 8602, 8604
 
 using Serilog;
-using RetailAppS.Lang;
-using RetailAppS.Templates;
+using Ondrej.Lang;
+using Ondrej.Templates;
 using MailKit.Net.Smtp;
 using MimeKit;
 using MimeKit.Text;
 using MailKit;
-using RetailAppS.Templates.Email;
-using RetailAppS.Templates.Email;
+using Ondrej.Templates.Email;
+using Ondrej.Templates.Email;
 
-namespace RetailAppS.Email
+namespace Ondrej.Email
 {
     public class EmailService
     {
@@ -65,7 +65,7 @@ namespace RetailAppS.Email
                 throw new Exception("missing configuration value: email_smtp_password");
             }
             emailSmtpPassword = Configuration["email_smtp_password"];
-            emailSmtpPassword = RetailAppS.Encryption.EncryptionHelper.Decrypt(emailSmtpPassword);
+            emailSmtpPassword = Ondrej.Encryption.EncryptionHelper.Decrypt(emailSmtpPassword);
 
             if (Configuration["domain_name"] == null)
             {

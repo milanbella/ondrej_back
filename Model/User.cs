@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Model
+﻿namespace Ondrej.Model
 {
     public class User
     {
@@ -9,6 +9,5 @@
         public string? Password { get; set; }
         public string? EmailVerificationCode { get; set; }
         public bool? IsEmailVerified { get; set; }
-        public CreditCard? CreditCard { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.CompilerServices;
 
-namespace RetailAppS.Auth
+namespace Ondrej.Auth
 {
     public class EncodedPassword
     {

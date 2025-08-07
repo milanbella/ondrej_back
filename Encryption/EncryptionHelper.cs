@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RetailAppS.Encryption
+namespace Ondrej.Encryption
 {
     public class EncryptionHelper
     {

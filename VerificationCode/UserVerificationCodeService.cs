@@ -1,8 +1,8 @@
-﻿using RetailAppS.Dbo;
+﻿using Ondrej.Dbo;
 using System.Text;
 using Serilog;
 
-namespace RetailAppS.VerificationCode
+namespace Ondrej.VerificationCode
 {
     public class UserVerificationCodeService
     {

@@ -3,10 +3,10 @@
 using System.Security.Cryptography;
 using Jose;
 using Serilog;
-using RetailAppS.Dbo;
+using Ondrej.Dbo;
 using Microsoft.EntityFrameworkCore;
 
-namespace RetailAppS.Auth
+namespace Ondrej.Auth
 {
     /*
     public enum UserType
@@ -53,7 +53,7 @@ namespace RetailAppS.Auth
                 throw new Exception("missing configuration value: pkcs12_key_store_file_path");
             }
             string keyStorePasswordEncrypted = Configuration.GetValue<string>("key_store_password");
-            this.keyStorePassword = RetailAppS.Encryption.EncryptionHelper.Decrypt(keyStorePasswordEncrypted);
+            this.keyStorePassword = Ondrej.Encryption.EncryptionHelper.Decrypt(keyStorePasswordEncrypted);
 
             this.dbContextOptions = dbContextOptions;
 
@@ -115,7 +115,7 @@ namespace RetailAppS.Auth
 
             if (userType == Token.UserType.RegisteredUser)
             {
-                RetailAppS.Dbo.Model.JWT jwt = new RetailAppS.Dbo.Model.JWT
+                Ondrej.Dbo.Model.JWT jwt = new Ondrej.Dbo.Model.JWT
                 {
                     Token = jwtStr,
                     UserId = userId,
@@ -128,7 +128,7 @@ namespace RetailAppS.Auth
             }
             else if (userType == Token.UserType.GuestUser)
             {
-                RetailAppS.Dbo.Model.JWT jwt = new RetailAppS.Dbo.Model.JWT
+                Ondrej.Dbo.Model.JWT jwt = new Ondrej.Dbo.Model.JWT
                 {
                     Token = jwtStr,
                     UserId = userId,

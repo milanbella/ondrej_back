@@ -1,10 +1,10 @@
 ﻿#pragma warning disable 8600, 8602 
 
-using RetailAppS.Auth;
-using RetailAppS.Dbo.Model;
+using Ondrej.Auth;
+using Ondrej.Dbo.Model;
 using Serilog;
 
-namespace RetailAppS.Middleware
+namespace Ondrej.Middleware
 {
     public class AuthMiddleware
     {

@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Controllers.Model.Api.Gui.CreditCardViewController
+﻿namespace Ondrej.Controllers.Model.Api.Gui.CreditCardViewController
 {
     public record SaveCardDetailRequest(string cardHolderName, string cardNumber, string expirationDate, string cvv);
     public record SaveCardDetailResponse(int creditCardId);

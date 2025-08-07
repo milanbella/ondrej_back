@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Common
+﻿namespace Ondrej.Common
 {
     public class Context
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace RetailAppS.Seed
+namespace Ondrej.Seed
 {
     public class SeedAll
     {

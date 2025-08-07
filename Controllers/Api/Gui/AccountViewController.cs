@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RetailAppS.Controllers.Model.Api.Gui.AccountViewController;
-using RetailAppS.Dbo;
-using RetailAppS.Sessionn;
+using Ondrej.Controllers.Model.Api.Gui.AccountViewController;
+using Ondrej.Dbo;
+using Ondrej.Sessionn;
 
-namespace RetailAppS.Controllers.Api.Gui
+namespace Ondrej.Controllers.Api.Gui
 {
     [Route("api/gui/account-view")]
     public class AccountViewController : Controller

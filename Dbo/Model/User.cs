@@ -1,6 +1,6 @@
 ﻿#pragma warning disable 8632
 
-namespace RetailAppS.Dbo.Model
+namespace Ondrej.Dbo.Model
 {
     [System.Serializable]
     public class User

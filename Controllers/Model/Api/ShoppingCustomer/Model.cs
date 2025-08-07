@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Controllers.Model.Api.ShoppingCustomer
+﻿namespace Ondrej.Controllers.Model.Api.ShoppingCustomer
 {
     public class Model
     {

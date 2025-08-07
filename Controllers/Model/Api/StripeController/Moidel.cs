@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Controllers.Model.Api.StripeController
+﻿namespace Ondrej.Controllers.Model.Api.StripeController
 {
     public record NewCustomerResponse(int id, string stripeCustomerId); 
 

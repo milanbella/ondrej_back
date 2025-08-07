@@ -1,6 +1,6 @@
 ﻿#pragma warning disable 8600, 8602 // Disable null check warnings for fields that are initialized in the constructor
 
-namespace RetailAppS.Auth
+namespace Ondrej.Auth
 {
     using System.Security.Cryptography;
     using System.Security.Cryptography.X509Certificates;

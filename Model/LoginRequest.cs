@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RetailAppS.Model
+namespace Ondrej.Model
 {
     public class LoginRequest
     {

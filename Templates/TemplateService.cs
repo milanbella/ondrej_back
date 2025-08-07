@@ -1,9 +1,9 @@
 ﻿using Scriban;
-using RetailAppS.Dbo;
+using Ondrej.Dbo;
 using Serilog;
-using RetailAppS.Lang;
+using Ondrej.Lang;
 
-namespace RetailAppS.Templates
+namespace Ondrej.Templates
 {
     public class TemplateService
     {

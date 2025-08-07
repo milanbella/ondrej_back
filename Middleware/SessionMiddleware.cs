@@ -4,9 +4,9 @@ using Serilog;
 using Microsoft.AspNetCore.DataProtection;
 using MySqlConnector;
 using Scriban.Parsing;
-using RetailAppS.Auth;
+using Ondrej.Auth;
 
-namespace RetailAppS.Middleware
+namespace Ondrej.Middleware
 {
     public class SessionMiddleware
     {
@@ -51,7 +51,7 @@ namespace RetailAppS.Middleware
                     return;
                 }
 
-                RetailAppS.Auth.Token.TokenClaims claims = tokenService.GetClaimsFormJWT(jwt);
+                Ondrej.Auth.Token.TokenClaims claims = tokenService.GetClaimsFormJWT(jwt);
 
                 if (claims == null)
                 {
@@ -67,13 +67,13 @@ namespace RetailAppS.Middleware
                     return;
                 }
 
-                context.Items.Add(RetailAppS.Common.Context.HTTP_CONTEXT_KEY_TOKEN_CLAIMS, claims);
+                context.Items.Add(Ondrej.Common.Context.HTTP_CONTEXT_KEY_TOKEN_CLAIMS, claims);
 
                 long? sessionId = await GetSessionIdFromDevice(dataSource, claims.DeviceId);
                 if (sessionId != null)
                 {
                     await UpdateSession(dataSource, sessionId.Value);
-                    context.Items[RetailAppS.Common.Context.HTTP_CONTEXT_KEY_SESSION_ID] = sessionId.Value;
+                    context.Items[Ondrej.Common.Context.HTTP_CONTEXT_KEY_SESSION_ID] = sessionId.Value;
                 }
 
                 await _next(context);
@@ -99,7 +99,7 @@ namespace RetailAppS.Middleware
                     await context.Response.WriteAsync("Internal Server Error");
                     return;
                 }
-                context.Items[RetailAppS.Common.Context.HTTP_CONTEXT_KEY_SESSION_ID] = sessionId.Value;
+                context.Items[Ondrej.Common.Context.HTTP_CONTEXT_KEY_SESSION_ID] = sessionId.Value;
 
                 // Call the next middleware in the pipeline
                 await _next(context);

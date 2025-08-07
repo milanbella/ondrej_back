@@ -1,4 +1,4 @@
-namespace RetailAppS.Dbo.Model
+namespace Ondrej.Dbo.Model
 {
     public class SessionUser
     {

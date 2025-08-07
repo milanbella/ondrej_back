@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
-using RetailAppS.Dbo;
+using Ondrej.Dbo;
 using System;
 using System.Security.Cryptography;
 using System.Text;
 using Serilog;
 
-namespace RetailAppS.Auth
+namespace Ondrej.Auth
 {
     public class ApiKeyService
     {

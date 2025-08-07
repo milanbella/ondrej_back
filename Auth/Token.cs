@@ -1,7 +1,7 @@
 ﻿#pragma warning disable 8618
 using System;
 
-namespace RetailAppS.Auth.Token
+namespace Ondrej.Auth.Token
 { 
     public enum UserType
     {

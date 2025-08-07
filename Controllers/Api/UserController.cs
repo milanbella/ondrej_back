@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RetailAppS.Controllers.Model.Api.UserController;
-using RetailAppS.Sessionn;
+using Ondrej.Controllers.Model.Api.UserController;
+using Ondrej.Sessionn;
 
-namespace RetailAppS.Controllers.Api
+namespace Ondrej.Controllers.Api
 {
     [Route("api/user")]
     public class UserController: Controller

@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Lang
+﻿namespace Ondrej.Lang
 {
     public enum Language
     {

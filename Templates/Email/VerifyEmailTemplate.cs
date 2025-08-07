@@ -1,9 +1,9 @@
 ﻿using Scriban;
 using Scriban.Runtime;
-using RetailAppS.Templates;
-using RetailAppS.Lang;
+using Ondrej.Templates;
+using Ondrej.Lang;
 
-namespace RetailAppS.Templates.Email
+namespace Ondrej.Templates.Email
 {
     public class VerifyEmailTemplate
     {

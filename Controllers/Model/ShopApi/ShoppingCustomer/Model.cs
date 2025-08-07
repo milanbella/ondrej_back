@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Controllers.Model.ShopApi.ShoppingCustomer
+﻿namespace Ondrej.Controllers.Model.ShopApi.ShoppingCustomer
 {
     public record VerifyScannedEntranceBarcodeRequest(int shopId, string customerId);
     public record VerifyScannedEntranceBarcodeResponse(int shopId, string customerId);

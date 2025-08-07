@@ -1,3 +1,3 @@
-namespace RetailAppS.Controllers.Model.Api.Gui.AccountViewController
+namespace Ondrej.Controllers.Model.Api.Gui.AccountViewController
 {
 }

@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Model
+﻿namespace Ondrej.Model
 {
     public class UserRegisterRequest
     {

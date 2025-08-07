@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RetailAppS.Dbo.Model;
+using Ondrej.Dbo.Model;
 using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 
-namespace RetailAppS.Dbo
+namespace Ondrej.Dbo
 {
     public class Db : DbContext, IDataProtectionKeyContext
     {
@@ -15,7 +15,7 @@ namespace RetailAppS.Dbo
             this.Environment = environment;
         }
 
-        public DbSet<RetailAppS.Dbo.Model.User> User => Set<RetailAppS.Dbo.Model.User>();
+        public DbSet<Ondrej.Dbo.Model.User> User => Set<Ondrej.Dbo.Model.User>();
         public DbSet<JWT> JWT => Set<JWT>();
         public DbSet<Device> Device => Set<Device>();
         public DbSet<UserVerificationCode> UserVerificationCode => Set<UserVerificationCode>();
@@ -29,10 +29,10 @@ namespace RetailAppS.Dbo
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // User
-            modelBuilder.Entity<RetailAppS.Dbo.Model.User>().HasKey(e => e.Id);
-            modelBuilder.Entity<RetailAppS.Dbo.Model.User>().HasIndex(e => e.Name).IsUnique(true);
-            modelBuilder.Entity<RetailAppS.Dbo.Model.User>().HasIndex(e => e.Email).IsUnique(true);
-            modelBuilder.Entity<RetailAppS.Dbo.Model.User>().HasIndex(e => e.EmailVerificationCode).IsUnique(true);
+            modelBuilder.Entity<Ondrej.Dbo.Model.User>().HasKey(e => e.Id);
+            modelBuilder.Entity<Ondrej.Dbo.Model.User>().HasIndex(e => e.Name).IsUnique(true);
+            modelBuilder.Entity<Ondrej.Dbo.Model.User>().HasIndex(e => e.Email).IsUnique(true);
+            modelBuilder.Entity<Ondrej.Dbo.Model.User>().HasIndex(e => e.EmailVerificationCode).IsUnique(true);
 
             // JWT
             modelBuilder.Entity<JWT>().HasKey(e => e.Id);
@@ -64,7 +64,7 @@ namespace RetailAppS.Dbo
             modelBuilder.Entity<ApiKey>().HasKey(e => e.Id);
             modelBuilder.Entity<ApiKey>().HasIndex(e => e.KeyValue).IsUnique(true);
 
-            RetailAppS.Seed.SeedAll.Seed(modelBuilder, Configuration, Environment);
+            Ondrej.Seed.SeedAll.Seed(modelBuilder, Configuration, Environment);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace RetailAppS
+namespace Ondrej
 {
     public class WeatherForecast
     {

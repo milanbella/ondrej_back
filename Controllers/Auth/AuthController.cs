@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RetailAppS.Auth;
-using RetailAppS.Controllers.Model.Auth.AuthController;
-using RetailAppS.Dbo;
-using RetailAppS.Dbo.Model;
-using RetailAppS.Sessionn;
+using Ondrej.Auth;
+using Ondrej.Controllers.Model.Auth.AuthController;
+using Ondrej.Dbo;
+using Ondrej.Dbo.Model;
+using Ondrej.Sessionn;
 using Serilog;
-using User = RetailAppS.Dbo.Model.User;
+using User = Ondrej.Dbo.Model.User;
 
-namespace RetailAppS.Controllers.Auth
+namespace Ondrej.Controllers.Auth
 {
     [Route("auth")]
     public class AuthController : Controller
@@ -249,7 +249,7 @@ namespace RetailAppS.Controllers.Auth
                     device.Id,
                     device.DeviceId,
                     100L * 365 * 24 * 3600, // 100 years validity
-                    RetailAppS.Auth.Token.UserType.RegisteredUser
+                    Ondrej.Auth.Token.UserType.RegisteredUser
                 );
 
                 await transaction.CommitAsync();
@@ -435,7 +435,7 @@ namespace RetailAppS.Controllers.Auth
                     device.Id,
                     device.DeviceId,
                     100L * 365 * 24 * 3600, // 100 years validity
-                    RetailAppS.Auth.Token.UserType.RegisteredUser
+                    Ondrej.Auth.Token.UserType.RegisteredUser
                 );
 
                 await transaction.CommitAsync();

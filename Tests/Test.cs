@@ -1,7 +1,7 @@
 ﻿#pragma warning disable 8600, 8601, 8618, 8602, 8604, 8603, 8765
 
 
-namespace RetailAppS.Tests
+namespace Ondrej.Tests
 {
     public class Test
     {

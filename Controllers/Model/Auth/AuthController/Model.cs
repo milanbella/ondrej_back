@@ -1,4 +1,4 @@
-﻿namespace RetailAppS.Controllers.Model.Auth.AuthController
+﻿namespace Ondrej.Controllers.Model.Auth.AuthController
 {
     public record BrowserLoginRequest(string username, string password);
     public record BrowserLoginResponse(string error, string message);
