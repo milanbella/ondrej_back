@@ -8,3 +8,5 @@ obj/
 .fake
 
 Migrations/
+
+*.swp
