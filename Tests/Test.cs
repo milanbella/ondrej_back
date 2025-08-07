@@ -21,7 +21,7 @@ namespace RetailAppS.Tests
 
         static void TestEncryptionHelper_1()
         {
-            string plaintext = "skakavykonik";
+            string plaintext = "xxxxxxxxxxxxxxxx";
 
             string encrypted = Encryption.EncryptionHelper.Encrypt(plaintext);
             Console.WriteLine($"Encrypted: {encrypted}");
