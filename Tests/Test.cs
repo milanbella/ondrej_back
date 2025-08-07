@@ -33,7 +33,7 @@ namespace RetailAppS.Tests
         static void TestEncryptionHelper_2()
         {
 
-            string encrypted = "Ip7QFArcnh63P2oFWI4+DRjD3V58:fq365suzXri51hoQ:3YHpEkZEIGRersog7scuWg==:oggmfd1SaXxYYPv4/Q1Y/Q==";
+            string encrypted = "MBA1WQDeUNJGQwdM:0baoUSwV1sMu31ns:7T9xkz197b5ZuuKYoj9mHA==:2scYCiepGXZqbPx+NN5mOg==";
 
             string decrypted = Encryption.EncryptionHelper.Decrypt(encrypted);
             Console.WriteLine($"Decrypted: {decrypted}");
@@ -43,8 +43,8 @@ namespace RetailAppS.Tests
         public static void TestAll() {
             if (true) {
                 //TestEncryptionHelper();
-                TestEncryptionHelper_1();
-                //TestEncryptionHelper_2();
+                //TestEncryptionHelper_1();
+                TestEncryptionHelper_2();
             }
         }
     }

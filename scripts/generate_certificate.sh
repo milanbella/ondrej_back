@@ -18,7 +18,7 @@ rm certs/key.pem
 set +x
 
 # to list the keystore (you must specify password to encrypt the displayed private key)
-# openssl pkcs12 -info -in out/key_store.pfx
+# winpty openssl pkcs12 -info -in certs/key_store.pfx
 
 # to list the keystore (displayed private key is not encrypted by password)
-# openssl pkcs12 -info -in out/key_store.pfx -nodes
+# winpty openssl pkcs12 -info -in certs/key_store.pfx -nodes

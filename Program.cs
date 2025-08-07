@@ -5,7 +5,7 @@ using MySqlConnector;
 using Serilog;
 using RetailAppS.Middleware;
 
-if (false)
+if (true)
 {
     RetailAppS.Tests.Test.TestAll();
     Console.WriteLine("Press any key to exit program");
