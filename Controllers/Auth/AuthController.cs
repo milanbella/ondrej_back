@@ -51,6 +51,125 @@ namespace Ondrej.Controllers.Auth
             return Ok(getUserResponse);
         }
 
+        [HttpPost("browser-register")]
+        public async Task<ActionResult<BrowserRegisterResponse>> BrowserRegister([FromBody] BrowserRegisterRequest request,
+        [FromServices] Db db, [FromServices] SessionService sessionService)
+        {
+            const string METHOD_NAME = "BrowserRegister()";
+
+            using var transaction = db.Database.BeginTransaction();
+            try
+            {
+
+                if (string.IsNullOrEmpty(request.username))
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "missing username",
+                        message: "missing username"
+                    )));
+                }
+
+                if (string.IsNullOrEmpty(request.email))
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "missing email",
+                        message: "missing email"
+                    )));
+                }
+
+                if (string.IsNullOrEmpty(request.password))
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "missing password",
+                        message: "missing password"
+                    )));
+                }
+
+                if (string.IsNullOrEmpty(request.passwordVerify))
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "missing passwordVerify",
+                        message: "missing passwordVerify"
+                    )));
+                }
+
+                if (request.password != request.passwordVerify)
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "passwords do not match",
+                        message: "passwords do not match"
+                    )));
+                }
+
+                // Find user by username
+                var user = await db.User.FirstOrDefaultAsync(u => u.Name == request.username);
+                if (user != null)
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "user_exists",
+                        message: "such a user already exists"
+                    )));
+                }
+
+                // Find user by email
+                user = await db.User.FirstOrDefaultAsync(u => u.Email == request.email);
+                if (user != null)
+                {
+                    return await Task.FromResult(StatusCode(400, new BrowserLoginResponse(
+                        error: "email_exists",
+                        message: "such a user already exists"
+                    )));
+                }
+
+
+                // Get session ID using SessionService
+                long? sessionDbId = sessionService.GetSessionId();
+                if (sessionDbId == null)
+                {
+                    // SessionMiddleware should have set the session ID in the context
+                    Log.Error($"{CLASS_NAME}:{METHOD_NAME} - Session ID is null");
+                    return await Task.FromResult(StatusCode(500, new BrowserLoginResponse(
+                        error: "server_error",
+                        message: "Session ID is not set."
+                    )));
+                }
+
+                // Remove existing SessionUser entries for this session if any exist
+                var existingSessionUsers = await db.SessionUser.Where(su => su.SessionId == sessionDbId).ToListAsync();
+                if (existingSessionUsers.Any())
+                {
+                    db.SessionUser.RemoveRange(existingSessionUsers);
+                    await db.SaveChangesAsync();
+                }
+
+                // Add entry in SessionUser table
+                var sessionUser = new SessionUser
+                {
+                    UserId = user.Id,
+                    SessionId = sessionDbId,
+                    CreatedAt = DateTime.Now,
+                    ExpiresAt = DateTime.Now.AddYears(1)
+                };
+                db.SessionUser.Add(sessionUser);
+                await db.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+                return await Task.FromResult(Ok(new BrowserLoginResponse(
+                    error: "",
+                    message: "Login successful."
+                )));
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Log.Error(ex, $"{CLASS_NAME}:{METHOD_NAME} - Error during login process");
+                return await Task.FromResult(StatusCode(500, new BrowserLoginResponse(
+                    error: "server_error",
+                    message: "An error occurred during login."
+                )));
+            }
+        }
+
         [HttpPost("browser-login")]
         public async Task<ActionResult<BrowserLoginResponse>> BrowserLogin([FromBody] BrowserLoginRequest request,
         [FromServices] Db db, [FromServices] SessionService sessionService)

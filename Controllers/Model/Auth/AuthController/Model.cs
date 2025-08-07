@@ -1,5 +1,8 @@
 ﻿namespace Ondrej.Controllers.Model.Auth.AuthController
 {
+    public record BrowserRegisterRequest(string username, string email, string password, string passwordVerify);
+    public record BrowserRegisterResponse(string error, string message);
+
     public record BrowserLoginRequest(string username, string password);
     public record BrowserLoginResponse(string error, string message);
 
