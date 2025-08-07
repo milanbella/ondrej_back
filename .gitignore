@@ -7,6 +7,6 @@ obj/
 
 .fake
 
-Migrations/
+#Migrations/
 
 *.swp
