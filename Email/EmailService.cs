@@ -8,7 +8,6 @@ using MimeKit;
 using MimeKit.Text;
 using MailKit;
 using Ondrej.Templates.Email;
-using Ondrej.Templates.Email;
 
 namespace Ondrej.Email
 {
